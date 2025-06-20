@@ -1,7 +1,7 @@
 name: Publish to Exchange
 on:
   push:
-    branches: [ pipelines-stages-mulesoft ]
+    branches: [ pipeline-stages-mulesoft ]
     
 jobs:         
   build:
