@@ -1,0 +1,14 @@
+name: Publish to Exchange
+on:
+  push:
+    branches: [ pipelines-stages-mulesoft ]
+    
+jobs:         
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish to Exchange
+        run: |
+          mvn deploy --settings .maven/settings.xml -DskipMunitTests \
+          -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
+          -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}"
